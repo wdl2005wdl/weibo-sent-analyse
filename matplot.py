@@ -6,6 +6,23 @@ import wordcloud
 from pyecharts import options as opts
 from pyecharts.charts import Pie
 from pyecharts.charts import Bar
+def adjust_names(region_list):
+    # 定义需要添加“省”后缀的地区
+    provinces = {'江苏', '河北', '湖南', '广东', '黑龙江', '吉林', '山西', '陕西', '浙江', '四川', '江西', '辽宁', '河南', '福建', '山东', '甘肃', '安徽', '湖北', '海南', '重庆', '新疆', '广西', '贵州', '青海', '宁夏', '云南'}
+    # 定义需要特殊处理的地区
+    special_regions = {'内蒙古': '内蒙古自治区', '西藏': '西藏自治区', '新疆': '新疆维吾尔自治区', '广西': '广西壮族自治区', '宁夏': '宁夏回族自治区'}
+    
+    # 调整地区名称
+    adjusted_list = []
+    for region in region_list:
+        if region in provinces and region not in special_regions:
+            adjusted_list.append(region + '省')
+        elif region in special_regions:
+            adjusted_list.append(special_regions[region])
+        else:
+            adjusted_list.append(region)
+            
+    return adjusted_list
 def isinDict(dict,tstr):
     if (tstr in dict) == True:
         dict[tstr] += 1
@@ -242,6 +259,7 @@ def pe_graphic(dic):
                                 page_title='page',
                                 )).add_xaxis(a)
         .add_yaxis("各省人数",b)
+        .set_global_opts( xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=-60, font_size=7)))
         .render("procnts.html")
 
     )
@@ -333,9 +351,12 @@ def pe_graphic(dic):
     .render("nwpe.html")
 )
     from pyecharts.charts import Map,Timeline
+    print(x_gra)
+    x_gra2 = adjust_names(x_gra)
+    print(x_gra2)
     c1 = (
         Map()
-        .add("like", [list(z) for z in zip(x_gra, y_gra2["like"])], "china")
+        .add("like", [list(z) for z in zip(x_gra2, y_gra2["like"])], "china")
         .set_global_opts(
            
            
@@ -347,7 +368,7 @@ def pe_graphic(dic):
     )
     c2 = (
         Map()
-        .add("disgust", [list(z) for z in zip(x_gra, y_gra2["disgust"])], "china")
+        .add("disgust", [list(z) for z in zip(x_gra2, y_gra2["disgust"])], "china")
         .set_global_opts(
            
            
@@ -359,7 +380,7 @@ def pe_graphic(dic):
     )
     c3 = (
         Map()
-        .add("surprise", [list(z) for z in zip(x_gra, y_gra2["surprise"])], "china")
+        .add("surprise", [list(z) for z in zip(x_gra2, y_gra2["surprise"])], "china")
         .set_global_opts(
            
            
@@ -371,7 +392,7 @@ def pe_graphic(dic):
     )
     c4 = (
         Map()
-        .add("anger", [list(z) for z in zip(x_gra, y_gra2["anger"])], "china")
+        .add("anger", [list(z) for z in zip(x_gra2, y_gra2["anger"])], "china")
         .set_global_opts(
            
            
@@ -383,7 +404,7 @@ def pe_graphic(dic):
     )
     c5 = (
         Map()
-        .add("fear", [list(z) for z in zip(x_gra, y_gra2["fear"])], "china")
+        .add("fear", [list(z) for z in zip(x_gra2, y_gra2["fear"])], "china")
         .set_global_opts(
            
            
@@ -395,7 +416,7 @@ def pe_graphic(dic):
     )
     c6 = (
         Map()
-        .add("sadness", [list(z) for z in zip(x_gra, y_gra2["sadness"])], "china")
+        .add("sadness", [list(z) for z in zip(x_gra2, y_gra2["sadness"])], "china")
         .set_global_opts(
            
            
@@ -407,7 +428,7 @@ def pe_graphic(dic):
     )
     c7 = (
         Map()
-        .add("happiness", [list(z) for z in zip(x_gra, y_gra2["happiness"])], "china")
+        .add("happiness", [list(z) for z in zip(x_gra2, y_gra2["happiness"])], "china")
         .set_global_opts(
            
         visualmap_opts=opts.VisualMapOpts(max_=max(y_gra2["happiness"]),
