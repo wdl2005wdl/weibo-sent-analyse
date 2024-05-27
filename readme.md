@@ -47,6 +47,8 @@ matplot.py	 可视化图表生成
 
 在[微博移动版 (m.weibo.cn)](https://m.weibo.cn/)登录自己的账号拿到自己的cookie,并填在spider.py的cookie中
 
+注意：爬虫接口已经变更，请自行写爬虫替换
+
 ### 2.运行
 
 运行htmltest.py
