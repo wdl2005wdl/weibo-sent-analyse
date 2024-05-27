@@ -85,7 +85,7 @@ def main():
             st.write("情感倾向为:   "+res)
         
             st.title("情绪分析(本地数据集/链接)")
-            text = st.text_input("请输入微博链接或文件地址:如(https://m.weibo.cn/detail/4835751314857743)", key="请输入内容")
+            text = st.text_input("请输入微博链接或文件地址:如(https://m.weibo.cn/detail/4835751314857743)", key="请输入内容1")
             sel = ["啥也不选","已有数据集","在线爬取数据集"]
             spy = st.radio("这是单选按钮", sel)
             y = st.button("开始执行")
