@@ -1,11 +1,14 @@
 # 基于textcnn的舆情分析系统
 ## 划重点
-因为是两年前的代码，所以weibo的爬虫可能失效，代码写的垃圾，见谅
+因为是两年前的代码，所以weibo的爬虫可能失效(大部分链接)，代码写的垃圾，见谅
+请自行设计新的爬虫代码
 
 ## 更新日志
 24-05-11 ：修复了热力地图无法正常显示的bug
 
 24-05-27 : 修复部分电脑streamlit报错输入框 key name重复的问题
+
+24-06-18 : 新增requirements.txt,可以直接用pip安装依赖包，废除requirements.yml
 
 ## 目录格式
 
@@ -41,7 +44,9 @@ matplot.py	 可视化图表生成
 
 ### 0.配置环境
 
-使用requirements.yml把所需包安装好,python版本3.7.13
+使用requirements.txt把所需包安装好,python版本3.7.13
+此外还需要安装pytorch，运行下面的命令：
+'pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu'
 
 ### 1.拿到cookie
 
