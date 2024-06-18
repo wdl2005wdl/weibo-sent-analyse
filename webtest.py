@@ -2,8 +2,8 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import pandas as pd
-from st_aggrid import AgGrid
-from st_aggrid.grid_options_builder import GridOptionsBuilder
+# from st_aggrid import AgGrid
+# from st_aggrid.grid_options_builder import GridOptionsBuilder
 # from streamlit_lottie import st_lottie
 import json
 from streamlit.elements.image import image_to_url
