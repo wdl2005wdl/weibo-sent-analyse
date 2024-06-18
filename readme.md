@@ -8,7 +8,7 @@
 
 24-05-27 : 修复部分电脑streamlit报错输入框 key name重复的问题
 
-24-06-18 : 新增requirements.txt,可以直接用pip安装依赖包，废除requirements.yml
+24-06-18 : 新增requirements.txt,可以直接用pip安装依赖包，废除requirements.yml,删除一些依赖
 
 ## 目录格式
 
