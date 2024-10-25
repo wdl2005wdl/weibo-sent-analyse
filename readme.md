@@ -47,9 +47,7 @@ matplot.py	 可视化图表生成
 
 使用requirements.txt把所需包安装好,python版本3.7.13
 
-此外还需要安装pytorch，运行下面的命令：
-
-'pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu'
+此外还需要安装pytorch.
 
 ### 1.拿到cookie
 
@@ -64,4 +62,4 @@ matplot.py	 可视化图表生成
 
 
 ## 说明
--
+-如需要配环境及额外要求，联系q:991986036
